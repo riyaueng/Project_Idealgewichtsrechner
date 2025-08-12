@@ -1,13 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Project Idealgewichtrechner</title>
   </head>
   <body>
-    <div id="app"></div>
+    <form>
+      <h1>Idealgewichtrechner</h1>
+
+      <div class="height-container">
+        <h2>Körpergröße</h2>
+        <input type="number" id="height-input" />
+      </div>
+
+      <div class="age-container">
+        <h2>Alter</h2>
+        <input type="number" id="age-input" />
+      </div>
+
+      <div class="body-container">
+        <h2>Körperbau</h2>
+        <input type="radio" id="bold" name="body-type" />
+        <label for="bold">Breit</label>
+        <input type="radio" id="slim" name="body-type" />
+        <label for="slim">Schmal</label>
+      </div>
+
+      <button type="submit">Submit</button>
+
+      <div class="output-container"></div>
+    </form>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
