@@ -1,24 +1,35 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css"
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const htmlElements = {
+  bodyHeightInputElement: document.querySelector("#height-input") as HTMLInputElement,
+  ageInputElement: document.querySelector("#age-input") as HTMLInputElement,
+  boldRadioButton: document.querySelector("#bold") as HTMLInputElement,
+  slimRadioButton: document.querySelector("#slim") as HTMLInputElement,
+  submitButton: document.querySelector("button") as HTMLButtonElement,
+  outputElement: document.querySelector(".output-container") as HTMLDivElement,
+}
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+function calculateIdealWeight(): number {
+  const bodyHeight: number = Number(htmlElements.bodyHeightInputElement.value)
+  const age: number = Number(htmlElements.ageInputElement.value)
+  const bold: boolean = htmlElements.boldRadioButton.checked
+  const slim: boolean = htmlElements.slimRadioButton.checked
+  let idealWeight: number = bodyHeight - 100 + (age / 10) * 0.9
+
+  if (bold && !slim) {
+    idealWeight = idealWeight * 1.1
+  } else if (!bold && slim) {
+    idealWeight = idealWeight * 0.9
+  }
+
+  return idealWeight
+}
+
+function printIdealWeight() {
+  htmlElements.outputElement.textContent = "Das Idealgewicht ist " + calculateIdealWeight()
+}
+
+htmlElements.submitButton.addEventListener("click", (e) => {
+  e.preventDefault()
+  printIdealWeight()
+})
