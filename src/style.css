@@ -5,9 +5,17 @@
 
 form {
   width: 30rem;
-  margin: 0 auto;
+  margin: 5rem auto;
+  padding: 2rem;
   border: none;
   border-radius: 1rem;
+  background: #aee6fc;
+  background: linear-gradient(
+    49deg,
+    rgba(174, 230, 252, 1) 0%,
+    rgba(171, 255, 207, 1) 50%,
+    rgba(250, 239, 145, 1) 100%
+  );
 }
 
 h1 {
