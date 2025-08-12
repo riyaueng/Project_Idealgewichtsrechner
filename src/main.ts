@@ -9,7 +9,7 @@ const htmlElements = {
   outputElement: document.querySelector(".output-container") as HTMLDivElement,
 }
 
-function calculateIdealWeight(): number {
+function calculateIdealWeight(): string {
   const bodyHeight: number = Number(htmlElements.bodyHeightInputElement.value)
   const age: number = Number(htmlElements.ageInputElement.value)
   const bold: boolean = htmlElements.boldRadioButton.checked
@@ -22,11 +22,11 @@ function calculateIdealWeight(): number {
     idealWeight = idealWeight * 0.9
   }
 
-  return idealWeight
+  return idealWeight.toFixed(2)
 }
 
 function printIdealWeight() {
-  htmlElements.outputElement.textContent = "Das Idealgewicht ist " + calculateIdealWeight()
+  htmlElements.outputElement.textContent = `Das Idealgewicht ist ${calculateIdealWeight()} kg.`
 }
 
 htmlElements.submitButton.addEventListener("click", (e) => {
