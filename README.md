@@ -34,7 +34,7 @@ Die Anwendung ermöglicht Nutzern die Eingabe ihrer persönlichen Daten und bere
 
 ---
 
-## 📚 Was wir gelernt habe
+## 📚 Was wir gelernt haben
 
 - **TypeScript Grundlagen**: Typisierung von Variablen, Funktionen und DOM-Elementen
 - **Formular-Handling**: Auslesen und Validieren von User-Input aus HTML-Formularen
